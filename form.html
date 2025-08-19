@@ -26,18 +26,18 @@
   <!-- Form Section -->
   <div class="container mt-5">
     <h2 class="mb-4">Internship Registration Form</h2>
-    <form onsubmit="return validateForm()">
+    <form method="POST" action="form.php" onsubmit="return validateForm()">
       <div class="mb-3">
         <label class="form-label">Name</label>
-        <input type="text" id="name" class="form-control" placeholder="Enter your full name">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name" />
       </div>
       <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="email" id="email" class="form-control" placeholder="Enter your email">
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" />
       </div>
       <div class="mb-3">
         <label class="form-label">Phone</label>
-        <input type="text" id="phone" class="form-control" placeholder="Enter 10-digit phone number">
+        <input type="text" name="phone" id="phone" class="form-control" placeholder="Enter 10-digit phone number" />
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
       <button type="reset" class="btn btn-secondary">Clear</button>
