@@ -46,28 +46,35 @@ $result = $stmt->get_result();
   <!-- Entries Table -->
   <table class="table table-bordered table-striped table-hover">
     <thead class="table-dark">
-      <tr>
+    <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Created At</th>
-      </tr>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
-      <?php if ($result->num_rows > 0): ?>
+        <?php if ($result->num_rows > 0): ?>
         <?php while ($row = $result->fetch_assoc()): ?>
-          <tr>
-            <td><?php echo htmlspecialchars($row['id']); ?></td>
-            <td><?php echo htmlspecialchars($row['name']); ?></td>
-            <td><?php echo htmlspecialchars($row['email']); ?></td>
-            <td><?php echo htmlspecialchars($row['phone']); ?></td>
-            <td><?php echo htmlspecialchars($row['created_at']); ?></td>
-          </tr>
+        <tr>
+        <td><?php echo htmlspecialchars($row['id']); ?></td>
+        <td><?php echo htmlspecialchars($row['name']); ?></td>
+        <td><?php echo htmlspecialchars($row['email']); ?></td>
+        <td><?php echo htmlspecialchars($row['phone']); ?></td>
+        <td><?php echo htmlspecialchars($row['created_at']); ?></td>
+        <td>
+          <a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
+          <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this entry?');">Delete</a>
+        </td>
+        </tr>
         <?php endwhile; ?>
-      <?php else: ?>
-        <tr><td colspan="5" class="text-center">No entries found</td></tr>
-      <?php endif; ?>
+        <?php else: ?>
+        <tr><td colspan="6" class="text-center">No entries found</td></tr>
+        <?php endif; ?>
+    </tbody>
+
     </tbody>
   </table>
 
